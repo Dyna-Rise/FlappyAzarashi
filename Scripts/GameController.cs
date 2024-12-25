@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
     public AzarashiController azarashi; //Azarashiのスクリプト
     public GameObject blocks; //Blocksオブジェクト
 
+    int score; //得点用
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,5 +104,12 @@ public class GameController : MonoBehaviour
 
         //Sceneの切り替え
         SceneManager.LoadScene(currentSceneName);
+    }
+
+    //他のスクリプトから呼び出される
+    public void IncreaseScore()
+    {
+        //スコアが1増える
+        score++;
     }
 }
