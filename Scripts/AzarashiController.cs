@@ -57,6 +57,9 @@ public class AzarashiController : MonoBehaviour
         //もしも死亡判定がtrueなら何も出来ない
         if (isDead) return;
 
+        //重力が効いていない時も何も出来ない
+        if (rb2d.isKinematic) return;
+
         //Velocityに力を与えて上方向に動かす
         rb2d.velocity = new Vector2(0.0f, flapVelocity);
     }
@@ -94,5 +97,11 @@ public class AzarashiController : MonoBehaviour
 
         //死亡判定をtrue
         isDead = true;
+    }
+
+    //AzarashiのActiveの状態を切り替える
+    public void SetSteerActive(bool active)
+    {
+        rb2d.isKinematic = !active;
     }
 }
